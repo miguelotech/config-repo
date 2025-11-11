@@ -28,19 +28,14 @@ spring:
 
   cloud:
     gateway:
-      server:
-        webflux:
-          default-filters:
-            - TokenRelay
-          routes:
-            - id: product-service
-              uri: lb://product-service
-              predicates:
-                - Path=/api/products/**
-            - id: order-service
-              uri: lb://order-service
-              predicates:
-                - Path=/api/pedidos/**
-      discovery:
-        locator:
-          enabled: true
+        default-filters:
+          - TokenRelay
+        routes:
+          - id: product-service
+            uri: lb://product-service
+            predicates:
+              - Path=/api/products/**
+          - id: order-service
+            uri: lb://order-service
+            predicates:
+              - Path=/api/pedidos/**
