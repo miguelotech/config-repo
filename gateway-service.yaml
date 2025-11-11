@@ -7,40 +7,17 @@ eureka:
       defaultZone: http://localhost:9000/eureka/
 
 spring:
-  main:
-    web-application-type: reactive
-  security:
-    oauth2:
-      client:
-        registration:
-          gateway-client:
-            provider: oauth-service
-            client-id: gateway-client
-            client-secret: secret
-            authorization-grant-type: authorization_code
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            scope:
-              - openid
-              - profile
-              - products.read
-              - products.write
-        provider:
-          oauth-service:
-            issuer-uri: http://localhost:9050
-
   cloud:
     gateway:
-      default-filters:
-        - TokenRelay
-      routes:
-        - id: product-service
-          uri: lb://product-service
-          predicates:
-            - Path=/api/products/**
-        - id: order-service
-          uri: lb://order-service
-          predicates:
-            - Path=/api/pedidos/**
       discovery:
         locator:
           enabled: true
+        routes:
+          - id: order-service
+            uri: lb://order-service
+            predicates:
+              - Path=/api/pedidos/**
+          - id: product-service
+            uri: lb://product-service
+            predicates:
+              - Path=/api/products/**
