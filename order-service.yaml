@@ -1,7 +1,7 @@
 server:
   port: 8082
 
-ms-productos:
+ms-product:
   url: "http://ms-product:8081"
 
 spring:
@@ -18,8 +18,3 @@ spring:
     init:
       mode: always
       platform: postgres
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:9000/eureka/
