@@ -22,4 +22,4 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defalutZone: http://registry-service:9000/eureka/
+      defaultZone: http://registry-service:9000/eureka/
