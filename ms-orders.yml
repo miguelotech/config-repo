@@ -19,7 +19,3 @@ spring:
       mode: always
       platform: postgres
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://registry-service:9000/eureka/
