@@ -7,12 +7,13 @@ spring:
       discovery:
         locator:
           enabled: true
-        routes:
-          - id: order-service
-            uri: lb://order-service
-            predicates:
-              - Path=/api/pedidos/**
-          - id: product-service
-            uri: lb://product-service
-            predicates:
-              - Path=/api/products/**
+          lower-case-service-id: true
+      routes:
+        - id: ms-orders
+          uri: lb://ms-orders
+          predicates:
+            - Path=/api/pedidos/**
+        - id: ms-product
+          uri: lb://ms-product
+          predicates:
+            - Path=/api/products/**
