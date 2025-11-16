@@ -16,3 +16,8 @@ spring:
       mode: always
       platform: postgres
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

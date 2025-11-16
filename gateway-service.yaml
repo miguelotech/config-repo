@@ -17,3 +17,8 @@ spring:
           uri: lb://ms-product
           predicates:
             - Path=/api/products/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
